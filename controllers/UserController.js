@@ -1,7 +1,7 @@
 //Only the Tutor's side has been done here
 
 // Get Tutor by Id
-export const getUserByUserId = async (tutor) => {
+const getUserByUserId = async (tutor) => {
     fetch(`/${tutor}`, {
         method: 'GET',
         headers: {
@@ -15,7 +15,7 @@ export const getUserByUserId = async (tutor) => {
 }
 
 //Update user details
-export const updateUser = async (id, changes) => {
+const updateUser = async (id, changes) => {
     fetch(`/${id}`, {
         method: 'PUT',
         headers: {
@@ -27,4 +27,9 @@ export const updateUser = async (id, changes) => {
         .catch(error => {
             console.error('Error:', error);
         });
+}
+
+module.exports = {
+    getUserByUserId,
+    updateUser
 }

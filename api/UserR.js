@@ -1,18 +1,32 @@
-import express from 'express';
-import {
+const express = require('express');
+
+const {
   deleteUserById,
   getAllUsers,
   getUserById,
   modifyUser,
-  createUser, 
-} from '../../Controllers/User_Controller/UserC.js';
+  createUser,
+} = require('../controllers/UserC.js');
+
+//User stub for testing
+const usersStub = [
+  {
+    "id": "id",
+    "name": "name"
+  },
+  {
+    "id": "anotherId",
+    "name": "anotherName"
+  }
+]
 
 const router = express.Router();
 
 
-router.get('/', async (req, res) => {
+router.get('/users/', async (req, res) => {
   try {
-    const users = await getAllUsers();
+    //const users = await getAllUsers();
+    const users = usersStub;
     res.status(200).json(users); 
   } catch (error) {
     res.status(500).json({ message: 'Error fetching users', error: error.message });
@@ -20,10 +34,11 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/users/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await getUserById(id);
+    //const user = await getUserById(id);
+    user = usersStub[id]
     if (user) {
       res.status(200).json(user); 
     } else {
@@ -35,22 +50,24 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/users/', async (req, res) => {
   const newUser = req.body;
   try {
-    const user = await createUser(newUser);
-    res.status(201).json(user); 
+    //const user = await createUser(newUser);
+    usersStub.push(newUser);
+    res.status(201).json(usersStub); 
   } catch (error) {
     res.status(500).json({ message: 'Error creating user', error: error.message });
   }
 });
 
 
-router.put('/:id', async (req, res) => {
+router.put('/users/:id', async (req, res) => {
   const { id } = req.params;
   const payload = req.body;
   try {
-    const user = await modifyUser(id, payload);
+    //const user = await modifyUser(id, payload);
+    const user = usersStub[id];
     if (user) {
       res.status(200).json(user); 
     } else {
@@ -62,10 +79,11 @@ router.put('/:id', async (req, res) => {
 });
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/users/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const result = await deleteUserById(id);
+    //const result = await deleteUserById(id);
+    const result = usersStub[id];
     if (result) {
       res.status(200).json({ message: 'User deleted successfully' }); 
     } else {
@@ -76,4 +94,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

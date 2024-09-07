@@ -1,7 +1,7 @@
-import User from "../../Models/User.js";
+const User = require('../models/User.js')
 
 
-export const createUser = async (payload) => {
+const createUser = async (payload) => {
   try {
     const newUser = new User(payload);
     const savedUser = await newUser.save(); 
@@ -12,7 +12,7 @@ export const createUser = async (payload) => {
 };
 
 
-export const getAllUsers = async () => {
+const getAllUsers = async () => {
   try {
     const users = await User.find(); 
     return users; 
@@ -22,7 +22,7 @@ export const getAllUsers = async () => {
 };
 
 
-export const getUserById = async (id) => {
+const getUserById = async (id) => {
   try {
     const user = await User.findById(id); 
     if (!user) {
@@ -35,7 +35,7 @@ export const getUserById = async (id) => {
 };
 
 
-export const modifyUser = async (id, payload) => {
+const modifyUser = async (id, payload) => {
   try {
     const user = await User.findById(id); 
     if (!user) {
@@ -55,7 +55,7 @@ export const modifyUser = async (id, payload) => {
 };
 
 
-export const deleteUserById = async (id) => {
+const deleteUserById = async (id) => {
   try {
     const result = await User.findByIdAndDelete(id); 
     if (!result) {
@@ -66,3 +66,11 @@ export const deleteUserById = async (id) => {
     throw new Error(`Error deleting user: ${error.message}`);
   }
 };
+
+module.exports = {
+  createUser,
+  getAllUsers,
+  getUserById,
+  modifyUser,
+  deleteUserById
+}

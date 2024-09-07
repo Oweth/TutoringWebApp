@@ -2,7 +2,6 @@
   "name": "tutoringwebapp",
   "version": "1.0.0",
   "description": "The Smart Campus System aims to revolutionize university life by integrating various aspects of campus operations into a seamless, user-friendly platform. This system will enhance the experience of students, faculty, and staff by providing efficient, accessible, and interconnected services. Each component of the system will be managed by dedicated teams, ensuring specialized focus and comprehensive development.",
-  
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2"
   }
 }
