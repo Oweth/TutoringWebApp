@@ -1,6 +1,6 @@
 //Done for the tutor only
 //Add a Resource
-export const addResource = async (resource) => {
+const addResource = async (resource) => {
     fetch('/', {
         method: 'POST',
         headers: {
@@ -15,7 +15,7 @@ export const addResource = async (resource) => {
 }
 
 //Delete a Resource
-export const deleteResource = async (id) => {
+const deleteResource = async (id) => {
     fetch(`/${id}`, {
         method: 'DELETE',
         headers: {
@@ -29,7 +29,7 @@ export const deleteResource = async (id) => {
 }
 
 //Get all Resources
-export const getAllResources = async () => {
+const getAllResources = async () => {
     fetch(`/`, {
         method: 'GET',
         headers: {
@@ -41,3 +41,9 @@ export const getAllResources = async () => {
             console.error('Error:', error);
         });
 }
+
+module.exports = {
+    addResource,
+    deleteResource,
+    getAllResources
+};

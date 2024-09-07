@@ -1,7 +1,7 @@
-import Resource from "../../Models/Resources.js"; 
+const Resource = require('../models/Resources.js');
 
 
-export const createResource = async (payload) => {
+const createResource = async (payload) => {
   try {
     const newResource = new Resource(payload);
     const savedResource = await newResource.save();
@@ -12,7 +12,7 @@ export const createResource = async (payload) => {
 };
 
 
-export const getAllResources = async () => {
+const getAllResources = async () => {
   try {
     const resources = await Resource.find();
     return resources;
@@ -22,7 +22,7 @@ export const getAllResources = async () => {
 };
 
 
-export const getResourceById = async (id) => {
+const getResourceById = async (id) => {
   try {
     const resource = await Resource.findById(id);
     if (!resource) {
@@ -35,7 +35,7 @@ export const getResourceById = async (id) => {
 };
 
 
-export const modifyResource = async (id, payload) => {
+const modifyResource = async (id, payload) => {
   try {
     const resource = await Resource.findById(id);
     if (!resource) {
@@ -54,7 +54,7 @@ export const modifyResource = async (id, payload) => {
 };
 
 
-export const deleteResourceById = async (id) => {
+const deleteResourceById = async (id) => {
   try {
     const result = await Resource.findByIdAndDelete(id);
     if (!result) {
@@ -64,4 +64,12 @@ export const deleteResourceById = async (id) => {
   } catch (error) {
     throw new Error(`Error deleting resource: ${error.message}`);
   }
+};
+
+module.exports = {
+  createResource,
+  getAllResources,
+  getResourceById,
+  modifyResource,
+  deleteResourceById
 };

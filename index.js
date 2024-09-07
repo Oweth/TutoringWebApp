@@ -1,6 +1,7 @@
 // index.js
-//import routes
+//import routers
 const userRouter = require('./api/UserR.js');
+const resourceRouter = require('./api/ResourceR.js');
 
 const express = require('express');
 const path = require('path');
@@ -22,6 +23,7 @@ app.get('/tutor_dashboard.html', (req, res) => {
 
 //Use users Router
 app.use( userRouter);
+app.use(resourceRouter);
 
 
 // Start the server

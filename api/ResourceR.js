@@ -1,16 +1,16 @@
-import express from 'express';
-import {
+const express = require('express');
+const {
   createResource,
   getAllResources,
   getResourceById,
   modifyResource,
   deleteResourceById,
-} from "../../Controllers/Resource_Controller/ResourceC.js"; 
+} = require('../controllers/ResourceC.js');
 
 const router = express.Router();
 
 
-router.get('/', async (req, res) => {
+router.get('/resource/', async (req, res) => {
   try {
     const resources = await getAllResources();
     res.status(200).json(resources); 
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/resource/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const resource = await getResourceById(id);
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/resource/', async (req, res) => {
   const newResource = req.body;
   try {
     const resource = await createResource(newResource);
@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/resource/:id', async (req, res) => {
   const { id } = req.params;
   const payload = req.body;
   try {
@@ -61,7 +61,7 @@ router.put('/:id', async (req, res) => {
 });
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/resource/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const result = await deleteResourceById(id);
@@ -75,4 +75,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;
