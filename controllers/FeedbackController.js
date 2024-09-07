@@ -1,7 +1,7 @@
 //ALL EVENT LISTENERS MUST BE PLACED IN SCRIPT AND IMPORT FUNCTIONS
 //Add the feedback
 const addFeedback = async (feedback) => {
-    fetch('../feedback/submit', {
+    fetch('/feedback/submit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ feedbackForm.addEventListener('submit', event => {
 //Update the feedback
 const updateFeedback = async (feedback) => {
     const session = feedback.session
-    fetch(`../feedback/${session}`, {
+    fetch(`/feedback/${session}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ updateFeedbackForm.addEventListener('submit', event => {
 
 //When delete button is pressed
 const deleteFeedback = async (id) => {
-    fetch(`../feedback/${id}`, {
+    fetch(`/feedback/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ const deleteFeedback = async (id) => {
 
 // Get Feedback by session
 const getFeedbackBySession = async (session) => {
-    fetch(`../feedback/session/${session}`, {
+    fetch(`/feedback/session/${session}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ const getFeedbackBySession = async (session) => {
 
 // Get All Feedback of a tutor
 const getAllFeedbackByTutor = async (tutor) => {
-    fetch(`../feedback/${tutor}`, {
+    fetch(`/feedback/${tutor}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
