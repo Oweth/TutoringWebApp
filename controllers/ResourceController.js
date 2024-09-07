@@ -1,7 +1,7 @@
 //Done for the tutor only
 //Add a Resource
 const addResource = async (resource) => {
-    fetch('/resource/', {
+    fetch('../resource/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -16,7 +16,7 @@ const addResource = async (resource) => {
 
 //Delete a Resource
 const deleteResource = async (id) => {
-    fetch(`/resource/${id}`, {
+    fetch(`../resource/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ const deleteResource = async (id) => {
 
 //Get all Resources
 const getAllResources = async () => {
-    fetch(`/resource/`, {
+    fetch(`../resource/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

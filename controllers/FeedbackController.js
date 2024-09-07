@@ -1,7 +1,7 @@
 //ALL EVENT LISTENERS MUST BE PLACED IN SCRIPT AND IMPORT FUNCTIONS
 //Add the feedback
-export const addFeedback = async (feedback) => {
-    fetch('/submit', {
+const addFeedback = async (feedback) => {
+    fetch('../feedback/submit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,9 +26,9 @@ feedbackForm.addEventListener('submit', event => {
 });
 
 //Update the feedback
-export const updateFeedback = async (feedback) => {
+const updateFeedback = async (feedback) => {
     const session = feedback.session
-    fetch(`/${session}`, {
+    fetch(`../feedback/${session}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -48,14 +48,14 @@ updateFeedbackForm.addEventListener('submit', event => {
     const rating = document.getElementById('rating').value;
     const comment = document.getElementById('comment').value;
     // create the feedback object
-    updateFeedbackFeedback(feedback);
+    updateFeedback(feedback);
     feedbackForm.reset();
 });
 
 
 //When delete button is pressed
-export const deleteFeedback = async (id) => {
-    fetch(`/${id}`, {
+const deleteFeedback = async (id) => {
+    fetch(`../feedback/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -68,8 +68,8 @@ export const deleteFeedback = async (id) => {
 }
 
 // Get Feedback by session
-export const getFeedbackBySession = async (session) => {
-    fetch(`/session/${session}`, {
+const getFeedbackBySession = async (session) => {
+    fetch(`../feedback/session/${session}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -82,8 +82,8 @@ export const getFeedbackBySession = async (session) => {
 }
 
 // Get All Feedback of a tutor
-export const getAllFeedbackByTutor = async (tutor) => {
-    fetch(`/${tutor}`, {
+const getAllFeedbackByTutor = async (tutor) => {
+    fetch(`../feedback/${tutor}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -93,4 +93,12 @@ export const getAllFeedbackByTutor = async (tutor) => {
         .catch(error => {
             console.error('Error:', error);
         });
+}
+
+module.exports = {
+    addFeedback,
+    updateFeedback,
+    deleteFeedback,
+    getFeedbackBySession,
+    getAllFeedbackByTutor
 }
