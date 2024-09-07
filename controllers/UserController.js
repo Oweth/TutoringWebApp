@@ -2,7 +2,7 @@
 
 // Get Tutor by Id
 const getUserByUserId = async (tutor) => {
-    fetch(`/${tutor}`, {
+    fetch(`/users/${tutor}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -16,7 +16,7 @@ const getUserByUserId = async (tutor) => {
 
 //Update user details
 const updateUser = async (id, changes) => {
-    fetch(`/${id}`, {
+    fetch(`/users/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
