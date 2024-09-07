@@ -2,6 +2,7 @@
 //import routers
 const userRouter = require('./api/UserR.js');
 const resourceRouter = require('./api/ResourceR.js');
+const feedbackRouter = require('./api/FeedbackR.js');
 
 const express = require('express');
 const path = require('path');
@@ -24,7 +25,7 @@ app.get('/tutor_dashboard.html', (req, res) => {
 //Use users Router
 app.use( userRouter);
 app.use(resourceRouter);
-
+app.use(feedbackRouter);
 
 // Start the server
 app.listen(PORT, () => {
