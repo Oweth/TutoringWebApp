@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .login-container button {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: #357ae8;
+        }
+
+        .login-container button img {
+            margin-right: 10px;
+        }
+
+        .login-container p {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+
+    <script>
+        function redirectToDashboard() {
+            window.location.href = "tutor_dashboard.html";
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h1>Sign in</h1>
+        <button onclick="redirectToDashboard()">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Logo">
+            Continue with Google
+        </button>
+        <p>or</p>
+        <button onclick="redirectToDashboard()">Continue with Facebook</button>
+        <button onclick="redirectToDashboard()">Continue with Apple</button>
+    </div>
+
+</body>
+</html>
