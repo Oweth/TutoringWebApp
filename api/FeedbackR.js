@@ -37,6 +37,7 @@ router.get('/feedback/:tutorId', (request, context) => {
         }
 
     ];
+    console.log(feedback);
     context.json(feedback);
 });
 

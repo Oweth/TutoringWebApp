@@ -15,15 +15,15 @@ const addFeedback = async (feedback) => {
 }
 
 //When feedback form is submitted
-feedbackForm.addEventListener('submit', event => {
-    event.preventDefault();
-    const sessionId = document.getElementById('sessionId').value;
-    const rating = document.getElementById('rating').value;
-    const comment = document.getElementById('comment').value;
-    // create the feedback object
-    addFeedback(feedback);
-    feedbackForm.reset();
-});
+// feedbackForm.addEventListener('submit', event => {
+//     event.preventDefault();
+//     const sessionId = document.getElementById('sessionId').value;
+//     const rating = document.getElementById('rating').value;
+//     const comment = document.getElementById('comment').value;
+//     // create the feedback object
+//     addFeedback(feedback);
+//     feedbackForm.reset();
+// });
 
 //Update the feedback
 const updateFeedback = async (feedback) => {
@@ -42,15 +42,15 @@ const updateFeedback = async (feedback) => {
 }
 
 //When update feedback form is submitted
-updateFeedbackForm.addEventListener('submit', event => {
-    event.preventDefault();
-    const sessionId = document.getElementById('sessionId').value;
-    const rating = document.getElementById('rating').value;
-    const comment = document.getElementById('comment').value;
-    // create the feedback object
-    updateFeedback(feedback);
-    feedbackForm.reset();
-});
+// updateFeedbackForm.addEventListener('submit', event => {
+//     event.preventDefault();
+//     const sessionId = document.getElementById('sessionId').value;
+//     const rating = document.getElementById('rating').value;
+//     const comment = document.getElementById('comment').value;
+//     // create the feedback object
+//     updateFeedback(feedback);
+//     feedbackForm.reset();
+// });
 
 
 //When delete button is pressed
@@ -81,6 +81,12 @@ const getFeedbackBySession = async (session) => {
         });
 }
 
+document.getElementById("viewFeedback").addEventListener('click', event => {
+    event.preventDefault();
+    const sessionId = document.getElementById("sesisonId").value;
+    getAllFeedbackByTutor(sessionId);
+});
+
 // Get All Feedback of a tutor
 const getAllFeedbackByTutor = async (tutor) => {
     fetch(`/feedback/${tutor}`, {
@@ -95,10 +101,8 @@ const getAllFeedbackByTutor = async (tutor) => {
         });
 }
 
-module.exports = {
-    addFeedback,
-    updateFeedback,
-    deleteFeedback,
-    getFeedbackBySession,
-    getAllFeedbackByTutor
-}
+document.getElementById("reviews").addEventListener('click', event => {
+    event.preventDefault();
+    //GET USER ID
+    getAllFeedbackByTutor(0);
+});
