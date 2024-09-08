@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // Serve static files from the 'css' and 'js' directories
 app.use(express.static('views')); 
+app.use("/frontC", express.static('./frontC/'));
 
 // Serve the index.html file from the 'views' directory
 app.get('/', (req, res) => {

@@ -6,6 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="module" src="../frontC/UserController.js" ></script>
 </head>
 <body>
     <div class="container">
@@ -33,7 +34,7 @@
             
             <section class="dashboard">
                 <h2>Personal Details</h2>
-                <form class="profile-form">
+                <form class="profile-form" id="update">
                     <label for="name_surname">Name and Surname:</label>
                     <input type="text" id="name" name="name" value="John">
 
@@ -47,12 +48,12 @@
                     <input type="text" id="qualification" name="qualification" value="Bachelor of Science">
 
                     <label for = "courses">Courses Tutoring</label>
-                    <input type="text" id="qualification" name="qualification" value="Bachelor of Science">
+                    <input type="text" id="courses" name="courses" value="Software Design Project">
 
                     <label for="updatepassword">Update Password:</label>
                     <input type="password" id="password" name="password" value="@12344">
 
-                    <button type="button" class="save-btn">Save</button>
+                    <button type="submit" class="save-btn">Save</button>
                 </form>
             </div>
             </section>
