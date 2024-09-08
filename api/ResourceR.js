@@ -56,7 +56,7 @@ router.post('/resource/', async (req, res) => {
   const newResource = req.body;
   try {
     //const resource = await createResource(newResource);
-    const resource = resourcesStub[0]
+    console.log( newResource);
     res.status(201).json(resource); 
   } catch (error) {
     res.status(500).json({ message: 'Error creating resource', error: error.message });

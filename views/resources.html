@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="../frontC/ResourceController.js"></script>
 </head>
 <body>
     <div class="container">
@@ -79,11 +80,11 @@
 
     <script>
         // Example JavaScript to handle form submission
-        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        document.getElementById('resource-file').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
             
             // You can handle the file upload here with JavaScript if needed
-            alert('Resource uploaded successfully!');
+            alert('Resource submitted successfully!');
             // Optionally, you can reset the form or perform other actions here
             this.reset();
         });
