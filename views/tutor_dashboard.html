@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="JavaScript" href="toogle.js"
+    <link rel="stylesheet" href="tutor_dashboard.css">
+    <link rel="JavaScript" href="toogle.js">
+    
 </head>
 
 <body>
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <!-- <aside class="sidebar">
             
             <nav class="sidebar">
                 <ul>
@@ -24,7 +26,20 @@
                     <li><a href="settings.html">Settings</a></li>
                 </ul>
             </nav>
-        </aside>
+        </aside> -->
+
+        <div id="sidebar" class="sidebar">
+            <button id="toggleButton" class="toggle-button"><img src="./Icons/arrow-left-svgrepo-com.svg" alt=""></button>
+            <ul>
+                <li><a href="tutor_dashboard.html"><img src="./Icons/dashboard-svgrepo-com.svg" alt="Dashboard"> <span>Tutor Dashboard</span></a></li>
+                <li><a href="profile.html"><img src="./Icons/people-svgrepo-com.svg" alt="Tutors"> <span>Profiles</span></a></li>
+                <li><a href="availability.html"><img src="./Icons/schedule-svgrepo-com.svg" alt="Schedule"> <span>Availability</span></a></li>
+                <li><a href="sessions.html"><img src="./Icons/resources-svgrepo-com.svg" alt="Resources"> <span>Upcoming sessions</span></a></li>
+                <li><a href="resources.html"><img src="./Icons/review-screen-svgrepo-com.svg" alt="Review"> <span>Review</span></a></li>
+                <li><a href="reviews.html"><img src="./Icons/review-screen-svgrepo-com.svg" alt="Settings"> <span>Settings</span></a></li>
+                <li><a href="settings.html" onclick="handleLogout()"><img src="./Icons/logout-icon.svg" alt="Logout"><span>Logout</span></a></li>
+            </ul>
+        </div>
 
         <!-- Main Content -->
         <main class="content">
@@ -65,5 +80,7 @@
             <p>Campus Tutoring App</p>
         </footer>
     </div>
+
+    <script src="tutor_dashboard.js"></script>
 </body>
 </html>
